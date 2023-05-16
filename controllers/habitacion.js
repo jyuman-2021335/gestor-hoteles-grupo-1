@@ -22,8 +22,8 @@ const getHabitaciones = async (req = request, res = response) => {
 
 const postHabitacion = async (req = request, res = response) => {
 
-    const { nombre, tipo, capacidad, precio, descripcion } = req.body;
-    const habitacionDB = new Habitacion({  nombre, tipo, capacidad, precio, descripcion });
+    const {capacidad, precio, estado, descripcion, hotel } = req.body;
+    const habitacionDB = new Habitacion({   capacidad, precio, estado, descripcion, hotel });
 
     //Guardar en la base de datos
     await habitacionDB.save();

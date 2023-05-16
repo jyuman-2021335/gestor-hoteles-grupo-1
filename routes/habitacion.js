@@ -12,21 +12,16 @@ const router = Router();
 router.get('/mostrar', getHabitaciones);
 
 router.post('/agregar', [
-    check('nombre', 'El nombre de la habitación es obligatorio').not().isEmpty(),
-    check('tipo', 'El tipo de la habitación es obligatorio').not().isEmpty(),
     check('capacidad', 'La capacidad es obligatoria').not().isEmpty(),
     check('precio', 'El precio es obligatorio').not().isEmpty(),
-    check('descripcion', 'La descripcion es obligatoria').not().isEmpty(),
     validarCampos
 ] , postHabitacion);
 
 
 router.put('/editar/:id',[
     check('id', 'No es un ID valido').isMongoId(),
-    check('tipo', 'El tipo de habitación no es valido').not().isEmpty(),
     check('capacidad', 'La capacidad es obligatoria').not().isEmpty(),
     check('precio', 'El precio es obligatorio').not().isEmpty(),
-    check('descripcion', 'La descripcion es obligatoria').not(),
     validarCampos
 ], putHabitacion);
 

@@ -1,13 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const HabitacionSchema = Schema({
-    nombre: {
+    
+    descripcion: {
         type: String,
-        required: [true, 'El nombre es obligatorio']
-    },
-    tipo: {
-        type: String,
-        required: [true, 'El tipo de habitación es obligatoria'],
+        required: [true, 'La descripción es obligatoria'],
     },
     capacidad: {
         type: Number,
@@ -17,10 +14,13 @@ const HabitacionSchema = Schema({
         type: Number,
         default: 0
     },
-    descripcion: {
-        type: String,
-        required: [true, 'La descripción es obligatoria'],
+    estado: {
+        type: Boolean
     },
+    hotel: {
+        type: Schema.Types.ObjectId,
+        ref: 'Hotel'
+    }
 });
 
-module.exports = model('Habitacion', HabitacionSchema)
+module.exports = model('Habitacion', HabitacionSchema);
