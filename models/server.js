@@ -13,7 +13,11 @@ class Server {
         this.authPath = '/api/auth';
         this.usuarioPath = '/api/usuarios';
         this.habitacionPath = '/api/habitaciones';
-        this.eventoPath = '/api/eventos';
+        this.eventoPath = '/api/evento';
+        this.hotelPath = '/api/hotel';
+        this.reservacionPath = '/api/reservacion';
+        this.tipoEventoPath = '/api/tipoEvento';
+        this.serviciosPath = '/api/servicios';
 
         //Conectar a base de datos
         this.conectarDB();
@@ -23,6 +27,7 @@ class Server {
         
         //Rutas de mi app
         this.routes();
+
 
     }
 
@@ -52,6 +57,10 @@ class Server {
         this.app.use( this.usuarioPath , require('../routes/usuario') );
         this.app.use( this.habitacionPath , require('../routes/habitacion') );
         this.app.use( this.eventoPath , require('../routes/evento') );
+        this.app.use( this.hotelPath , require('../routes/hotel') );
+        this.app.use( this.reservacionPath , require('../routes/reservacion') );
+        this.app.use( this.tipoEventoPath , require('../routes/tipoEvento') );
+        this.app.use( this.serviciosPath , require('../routes/servicio') );
     }
 
 
