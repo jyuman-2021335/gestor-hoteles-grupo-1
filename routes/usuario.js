@@ -23,6 +23,15 @@ router.post('/agregar', [
     validarCampos
 ] , postUsuario);
 
+router.post('/registro', [
+    check('nombre', 'El nombre es obligatorio para el post').not().isEmpty(),
+    check('password', 'la password es obligatoria para el post').not().isEmpty(),
+    check('password', 'La passward debe ser mayor a 6 letras').isLength({ min: 6 }),
+    check('correo', 'El correo no es valido').isEmail(),
+    check('correo').custom(emailExiste),
+    validarCampos
+], registroUsuario);
+
 
 router.put('/editar/:id',[
     check('id', 'No es un ID valido').isMongoId(),

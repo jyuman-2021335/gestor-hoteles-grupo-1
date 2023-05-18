@@ -42,6 +42,25 @@ const postUsuario = async (req = request, res = response) => {
 
 }
 
+const registroUsuario = async (req = request, res = response) => {
+
+    const { nombre, correo, password} = req.body;
+    const registerUser = new Usuario({ nombre, correo, password});
+
+    //Encriptar password
+    const salt = bcryptjs.genSaltSync();
+    registerUser.password = bcryptjs.hashSync(password, salt);
+
+    //Guardar en Base de datos
+    await registerUser.save();
+
+    res.status(201).json({
+        msg: 'Registro de usuario',
+        registerUser
+    });
+
+}
+
 const putUsuario = async (req = request, res = response) => {
 
     const { id } = req.params;
@@ -88,6 +107,7 @@ const deleteUsuario = async (req = request, res = response) => {
 module.exports = {
     getUsuarios,
     postUsuario,
+    registroUsuario,
     putUsuario,
     deleteUsuario
 }
