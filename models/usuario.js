@@ -14,22 +14,18 @@ const UsuarioSchema = Schema({
         type: String,
         required: [true, 'El contraseña es obligatorio']
     },
-    img: {
-        type: String
-    },
+ 
     rol: {
         type: String,
         required: true,
-        default: 'CLIENT_ROLE'
+        default: 'USER_ROLE',
+        enum: ['ADMIN_ROLE', 'USER_ROLE', 'SUPER_ADMIN']
     },
     estado: {
         type: Boolean,
         default: true
     },
-    google: {
-        type: Boolean,
-        default: false
-    }
+
 });
 
 module.exports = model('Usuario', UsuarioSchema)

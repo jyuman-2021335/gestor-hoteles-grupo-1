@@ -1,6 +1,7 @@
+
 const { Schema, model } = require('mongoose');
 
-const ReservacionSchema = Schema({
+const ReservaSchema = Schema({
   habitacion: {
     type: Schema.Types.ObjectId,
     ref: 'Habitacion',
@@ -14,7 +15,11 @@ const ReservacionSchema = Schema({
     type: Date,
     required: true,
   },
+  total: {
+    type: Number,
+    default: 0,
+  },
  
 });
 
-module.exports = model('Reservacion', ReservacionSchema);
+module.exports = model('Reservacion', ReservaSchema);

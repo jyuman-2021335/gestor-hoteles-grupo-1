@@ -1,5 +1,5 @@
 const { response, request } = require('express');
-const Evento = require('../models/Evento');
+const Evento = require('../models/evento');
 const TipoEvento = require('../models/tipoEvento');
 const Hotel = require('../models/hotel');
 

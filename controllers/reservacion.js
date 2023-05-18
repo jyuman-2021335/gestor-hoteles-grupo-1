@@ -3,28 +3,47 @@ const { response, request } = require('express');
 const Reservacion = require('../models/Reservacion');
 const Habitacion = require('../models/habitacion');
 
-const crearReservacion = async (req = request, res = response) => {
-  const { habitacion, fecha_inicio, fecha_fin, huespedes } = req.body;
+const crearReservacion = async (req, res) => {
+  const { habitacion, fecha_inicio, fecha_fin } = req.body;
 
-  // Verificar que la habitación existe
-  const habitacionExiste = await Habitacion.findById(habitacion);
-  if (!habitacionExiste) {
-    return res.status(404).json({
+  try {
+    // Verificar que la habitación existe
+    const habitacionExiste = await Habitacion.findById(habitacion);
+    if (!habitacionExiste) {
+      return res.status(404).json({
+        ok: false,
+        msg: 'La habitación no existe'
+      });
+    }
+
+    // Obtener el precio de la habitación
+    const precioHabitacion = habitacionExiste.precio;
+
+    // Calcular el total de la reservación
+    const total = precioHabitacion;
+
+    // Crear la reservación
+    const reservacion = new Reservacion({
+      habitacion,
+      fecha_inicio,
+      fecha_fin,
+      total
+    });
+
+    // Guardar la reservación en la base de datos
+    await reservacion.save();
+
+    res.status(201).json({
+      ok: true,
+      data: reservacion
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
       ok: false,
-      msg: 'La habitación no existe'
+      msg: 'Error al crear la reservación'
     });
   }
-
-  // Crear la reservación
-  const reservacion = new Reservacion(req.body);
-
-  // Guardar la reservación en la base de datos
-  await reservacion.save();
-
-  res.status(201).json({
-    ok: true,
-    reservacion
-  });
 };
 
 const editarReservacion = async (req = request, res = response) => {

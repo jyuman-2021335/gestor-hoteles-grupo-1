@@ -12,26 +12,24 @@ const router = Router();
 router.get('/mostrar', getHabitaciones);
 
 router.post('/agregar', [
+   
     check('capacidad', 'La capacidad es obligatoria').not().isEmpty(),
     check('precio', 'El precio es obligatorio').not().isEmpty(),
-<<<<<<< Updated upstream
-    validarCampos
-=======
+    check('descripcion', 'La descripcion es obligatoria').not().isEmpty(),
+    validarCampos,
     validarJWT
->>>>>>> Stashed changes
 ] , postHabitacion);
+
 
 router.put('/editar/:id',[
     check('id', 'No es un ID valido').isMongoId(),
+    check('tipo', 'El tipo de habitación no es valido').not().isEmpty(),
     check('capacidad', 'La capacidad es obligatoria').not().isEmpty(),
     check('precio', 'El precio es obligatorio').not().isEmpty(),
-<<<<<<< Updated upstream
+    check('descripcion', 'La descripcion es obligatoria').not(),
     validarCampos
-=======
-    validarCampos,
-    validarJWT
->>>>>>> Stashed changes
 ], putHabitacion);
+
 
 router.delete('/eliminar/:id', [
     validarJWT,

@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "1cf56d99-b3da-4544-a12a-604e26f1f273",
+		"name": "gestor-hoteles-grupo-1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Agregar Hotel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Hotel Vistares\",\r\n    \"direccion\": \"Z<na 9\",\r\n    \"ciudad\": \"Villa Nueva\",\r\n    \"estrellas\": \"4\",\r\n    \"telefono\": \"67345823\",\r\n    \"correo\": \"hbarcenas@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/hotel/agregar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hotel",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar Hoteles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/hotel/mostrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hotel",
+						"mostrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Hotel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Hotel Barcenas\",\r\n    \"direccion\": \"Z<na 9\",\r\n    \"ciudad\": \"Villa Nueva\",\r\n    \"estrellas\": \"5\",\r\n    \"telefono\": \"67345823\",\r\n    \"correo\": \"hbarcenas@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/hotel/editar/6456f14b6507312ddf259e05",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hotel",
+						"editar",
+						"6456f14b6507312ddf259e05"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Hotel",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/hotel/eliminar/6456f2066507312ddf259e09",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hotel",
+						"eliminar",
+						"6456f2066507312ddf259e09"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Habitaciones",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n     \"descripcion\":\"Habitacion 1 cama\",\r\n     \"capacidad\": \"1\",\r\n     \"precio\": \"500.00\",\r\n     \"hotel\": \"6456f14b6507312ddf259e05\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/habitaciones/agregar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"habitaciones",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Habitaciones por Hotel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/hotel/6456f14b6507312ddf259e05/habitaciones",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hotel",
+						"6456f14b6507312ddf259e05",
+						"habitaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hacer Reservacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"habitacion\": \"6456f4f784dd32464e5eab11\",\r\n    \"fecha_inicio\": \"02-02-2023\",\r\n    \"fecha_fin\": \"02-04-2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/reservacion/agregar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"reservacion",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancelar Reservacion",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/reservacion/cancelar/64573df91e3b39a5e09b8b01",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"reservacion",
+						"cancelar",
+						"64573df91e3b39a5e09b8b01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Tipo Evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\": \"Musica\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/tipoEvento/agregar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tipoEvento",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Concierto de Vesca\",\r\n    \"descripcion\": \"La artista vesca estara tocando un set increible\",\r\n    \"precio\" : \"500.00\",\r\n    \"tipoEvento\" : \"645747c370ce0bd58450378a\",\r\n    \"hotel\": \"6456f14b6507312ddf259e05\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/eventos/agregar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"eventos",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Servicio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Wifi\",\r\n    \"descripcion\": \"Conexión de internet inalámbrica\",\r\n    \"precio\": 30.00,\r\n    \"habitacion\": \"6456f4f784dd32464e5eab11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/servicios/agregar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"servicios",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Edy\",\r\n    \"correo\": \"edyletona@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"rol\": \"ADMIN_ROLE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/usuarios/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuarios",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Edy\",\r\n    \"correo\": \"edyletona@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

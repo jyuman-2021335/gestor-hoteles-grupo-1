@@ -1,18 +1,32 @@
+
+
 const { Schema, model } = require('mongoose');
 
 
 const HotelSchema =  Schema({
     nombre: {
-        type: String
+      type: String,
+      required: true
     },
     direccion: {
-        type: String
+      type: String,
+      required: true
     },
     ciudad: {
-        type: String
+      type: String,
+      required: true
+    },
+    estrellas: {
+      type: Number,
+      default: 3
+    },
+    telefono: {
+      type: String,
+      required: true
     },
     correo: {
-        type: String
+      type: String,
+      required: true
     }
   });
 

@@ -12,15 +12,13 @@ const HabitacionSchema = Schema({
     },
     precio: {
         type: Number,
-        default: 0 
+        default: 0
     },
-    estado: {
-        type: Boolean
-    },
+  
     hotel: {
         type: Schema.Types.ObjectId,
         ref: 'Hotel'
     }
 });
 
-module.exports = model('Habitacion', HabitacionSchema);
+module.exports = model('Habitacion', HabitacionSchema)

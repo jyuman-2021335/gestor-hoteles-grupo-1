@@ -1,14 +1,14 @@
 {
   "name": "gestor-hoteles",
   "version": "1.0.0",
-  "description": "Proyecto Gestor de Hoteles con nodejs, react y javascript",
+  "description": " Gestor de Hoteles ",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jefferson Gadiel Yuman Pérez, Edy Leonel Letona Argueta",
+  "author": "Edy Letona",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

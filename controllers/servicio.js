@@ -1,3 +1,5 @@
+// controllers/servicios.js
+
 const Servicio = require('../models/servicio');
 
 const obtenerServicios = async (req, res) => {

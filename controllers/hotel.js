@@ -18,6 +18,8 @@ const mostrarHoteles = (req, res) => {
       nombre: req.body.nombre,
       direccion: req.body.direccion,
       ciudad: req.body.ciudad,
+      estrellas: req.body.estrellas,
+      telefono: req.body.telefono,
       correo: req.body.correo
     });
     hotel.save((err, hotel) => {
