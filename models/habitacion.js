@@ -12,7 +12,7 @@ const HabitacionSchema = Schema({
     },
     precio: {
         type: Number,
-        default: 0
+        default: 0 
     },
     estado: {
         type: Boolean
