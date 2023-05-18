@@ -42,6 +42,7 @@ const postUsuario = async (req = request, res = response) => {
 
 }
 
+<<<<<<< Updated upstream
 const registroUsuario = async (req = request, res = response) => {
 
     const { nombre, correo, password} = req.body;
@@ -59,6 +60,19 @@ const registroUsuario = async (req = request, res = response) => {
         registerUser
     });
 
+=======
+const registerUsuarios = async (req = request, res = response) => {
+    const {nombre, correo, password} = req.body;
+    const usuarioRegistrado = new Usuario({nombre, correo, password});
+    const salt = bcryptjs.genSaltSync();
+    usuarioRegistrado.password = bcryptjs.hashSync(password, salt); 
+    await usuarioRegistrado.save();
+
+    res.status(201).json({
+        msg: 'Nuevo cliente registrado',
+        usuarioRegistrado  
+    })
+>>>>>>> Stashed changes
 }
 
 const putUsuario = async (req = request, res = response) => {
@@ -102,12 +116,56 @@ const deleteUsuario = async (req = request, res = response) => {
 
 }
 
+const putUsuarioPerfil = async (req = request, res = response) => {
+    const { id } = req.params;
+    const usuario = req.usuario._id;
+    const usuarioId = usuario.toString();
 
+    if (id === usuarioId) {
+        const { _id, rol, ...resto } = req.body;
+        const salt = bcryptjs.genSaltSync();
+        resto.password = bcryptjs.hashSync(resto.password, salt);
+        const usuarioEditado = await Usuario.findByIdAndUpdate(id, resto, { new: true });
+        res.status(200).json({
+            msg: 'PUT API perfil de usuarios',
+            usuarioEditado
+        })
+    } else {
+        res.status(401).json({
+            msg: 'Solo puedes editar tu perfil >:('
+
+        })
+    }
+
+}
+
+const deleteUsuarioPerfil = async (req = request, res = response) => {
+    const { id } = req.params;
+    const usuario = req.usuario._id;
+    const idUsuario = usuario.toString();
+
+    if (id === idUsuario) {
+        const usuarioEliminado = await Usuario.findByIdAndDelete(id);
+        res.status(200).json({
+            msg: 'DELETE API perfil de usuarios',
+            usuarioEliminado
+        })
+    } else {
+        res.status(401).json({
+            msg: 'Solo puedes eliminar tu perfil >:('
+
+        })
+    }
+
+}
 
 module.exports = {
     getUsuarios,
     postUsuario,
     registroUsuario,
     putUsuario,
-    deleteUsuario
+    deleteUsuario,
+    registerUsuarios,
+    putUsuarioPerfil,
+    deleteUsuarioPerfil
 }

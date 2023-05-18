@@ -14,17 +14,24 @@ router.get('/mostrar', getHabitaciones);
 router.post('/agregar', [
     check('capacidad', 'La capacidad es obligatoria').not().isEmpty(),
     check('precio', 'El precio es obligatorio').not().isEmpty(),
+<<<<<<< Updated upstream
     validarCampos
+=======
+    validarJWT
+>>>>>>> Stashed changes
 ] , postHabitacion);
-
 
 router.put('/editar/:id',[
     check('id', 'No es un ID valido').isMongoId(),
     check('capacidad', 'La capacidad es obligatoria').not().isEmpty(),
     check('precio', 'El precio es obligatorio').not().isEmpty(),
+<<<<<<< Updated upstream
     validarCampos
+=======
+    validarCampos,
+    validarJWT
+>>>>>>> Stashed changes
 ], putHabitacion);
-
 
 router.delete('/eliminar/:id', [
     validarJWT,
